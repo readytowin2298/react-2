@@ -35,7 +35,7 @@ function App() {
         <main>
           <Switch>
             <Route exact path="/">
-              <Home snacks={snacks} />
+              <Home snacks={snacks} drinks={drinks} />
             </Route>
             <Route exact path="/snacks">
               <Menu items={snacks} title="Snacks" baseURL='/snacks'/>
