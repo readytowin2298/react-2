@@ -5,20 +5,23 @@ import Home from "./Home";
 import SnackOrBoozeApi from "./Api";
 import NavBar from "./NavBar";
 import { Route, Switch } from "react-router-dom";
-import Menu from "./FoodMenu";
+import Menu from "./Menu";
 import Snack from "./FoodItem";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [snacks, setSnacks] = useState([]);
+  const [drinks, setDrinks] = useState([]);
 
   useEffect(() => {
-    async function getSnacks() {
+    async function getMenu() {
       let snacks = await SnackOrBoozeApi.getSnacks();
       setSnacks(snacks);
+      let drinks = await SnackOrBoozeApi.getDrinks();
+      setDrinks(drinks);
       setIsLoading(false);
     }
-    getSnacks();
+    getMenu();
   }, []);
 
   if (isLoading) {
@@ -35,7 +38,7 @@ function App() {
               <Home snacks={snacks} />
             </Route>
             <Route exact path="/snacks">
-              <Menu snacks={snacks} title="Snacks" />
+              <Menu items={drinks} title="Snacks" />
             </Route>
             <Route path="/snacks/:id">
               <Snack items={snacks} cantFind="/snacks" />
