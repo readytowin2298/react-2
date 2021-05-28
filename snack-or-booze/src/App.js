@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
 import SnackOrBoozeApi from "./Api";
@@ -30,7 +29,6 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
         <NavBar />
         <main>
           <Switch>
@@ -54,7 +52,6 @@ function App() {
             </Route>
           </Switch>
         </main>
-      </BrowserRouter>
     </div>
   );
 }
