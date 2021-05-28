@@ -29,6 +29,7 @@ function Menu({ items, baseURL }) {
               </Link>
             ))}
           </ListGroup>
+          <Link to="/addnew">Add New Item</Link>
         </CardBody>
       </Card>
     </section>
