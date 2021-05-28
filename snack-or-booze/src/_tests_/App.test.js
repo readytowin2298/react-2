@@ -15,6 +15,8 @@ describe("smoke", ()=> {
 describe("lol", () => {
     test("can find text", ()=> {
         const { getByText } = render(<Rendhi />);
-        expect(getByText("HI"))
+        const text = getByText("HI")
+        console.log(text)
+        expect(text).toBeInTheDocument()
     })
 })
