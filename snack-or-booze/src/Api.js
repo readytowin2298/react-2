@@ -20,6 +20,27 @@ class SnackOrBoozeApi {
     const result = await axios.get(`${BASE_API_URL}/drinks`);
     return result.data;
   }
+
+  static async addItem({name, description, recipe, serve, type}){
+    if(!name || !description || !recipe || !serve || !type){
+      return undefined;
+    }
+    const fields = {
+      "id" : name.toLowerCase(),
+      "name": name,
+      "description" : description,
+      "recipe" : recipe,
+      "serve" : serve
+    }
+    const url = `${BASE_API_URL}/${type}s`
+    console.log("URL: ", url)
+    try {
+      await axios.post( url, fields )
+    } catch(e){
+      return undefined
+    }
+    return true
+  }
 }
 
 export default SnackOrBoozeApi;
